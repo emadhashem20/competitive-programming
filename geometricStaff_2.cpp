@@ -35,6 +35,14 @@ bool isCollinear(point a, point b, point c) {
 	return fabs( cp(b-a, c-a) ) < EPS;	
 } 
 
+bool isabove(point a, point b, point c) {
+    return fabs(cp(b - a , c - a)) > 0;
+}
+
+int dCMP(double a, double b) {
+    return fabs(a - b) <= EPS ? 0 : a < b ? -1 : 1;
+}
+
 bool isPointOnRay(point p0, point p1, point p2) {
     if(length(p2-p0) < EPS) return true;
     return same( normalize(p1-p0), normalize(p2-p0) );
