@@ -1,18 +1,13 @@
-static long PowerMod(int a, int b, int c){// a^b %c
- 
-    long v=a, r=1;
- 
-    while(b!=0){
- 
-        if(b%2==0){
-            b /= 2;
-            v = v*v%c;
-        }else{
-            r = r*v%c;
+ll fp(ll a, ll b) {
+    ll ans = 1, rem = a;
+    while(b > 0) {
+        if(ODD(b)) {
             b--;
+            ans = ans * rem % MOD;
+        } else {
+            b /= 2;
+            rem = rem * rem % MOD;
         }
- 
     }
- 
-    return  (r%c);
+    return ans % MOD;
 }
